@@ -12,6 +12,7 @@ var getResults = require('./routes/getResults');
 var userAnswer = require('./routes/userAnswer');
 var getQuinielaMaster = require('./routes/getQuinielaMaster');
 var masterAnswer = require('./routes/masterAnswer');
+var masterStatus = require('./routes/masterStatus');
 
 var users = require('./routes/users');
 
@@ -36,6 +37,7 @@ app.use('/getResults', getResults);
 app.use('/userAnswer', userAnswer);
 app.use('/getQuinielaMaster', getQuinielaMaster);
 app.use('/masterAnswer', masterAnswer);
+app.use('/masterStatus', masterStatus);
 
 app.use('/users', users);
 
