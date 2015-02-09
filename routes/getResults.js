@@ -7,7 +7,6 @@ var router = express.Router();
 
 router.get('/', function(request, response) {
 
-
     var resObj =new Object();
 
 	//Make sure a userUUID and a quinielaUUID were passed

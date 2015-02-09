@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 
-var getQuniela = require('./routes/getQuiniela');
-var getQuniela = require('./routes/getResults');
+var getQuiniela = require('./routes/getQuiniela');
+var getResults = require('./routes/getResults');
 
 var users = require('./routes/users');
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-app.use('/getQuiniela', getQuniela);
+app.use('/getQuiniela', getQuiniela);
 app.use('/getResults', getResults);
 
 app.use('/users', users);
