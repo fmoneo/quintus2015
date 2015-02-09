@@ -1,5 +1,5 @@
 
-var serverName = process.env.SERVER_NAME;
+var serverName = "quintus2015.azurewebsites.net";
 
 $(document).ready(function () {
 
