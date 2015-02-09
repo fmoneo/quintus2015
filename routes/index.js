@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 	
 
 	
-  res.render('index', { title: 'Express'+process.env.MYSQL_USER });
+  res.render('index', { title: 'Express ' + process.env.MYSQL_HOST });
 });
 
 module.exports = router;

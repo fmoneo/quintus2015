@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 
 var getQuiniela = require('./routes/getQuiniela');
 var getResults = require('./routes/getResults');
+var userAnswer = require('./routes/userAnswer');
 
 var users = require('./routes/users');
 
@@ -30,6 +31,7 @@ app.use('/', routes);
 
 app.use('/getQuiniela', getQuiniela);
 app.use('/getResults', getResults);
+app.use('/userAnswer', userAnswer);
 
 app.use('/users', users);
 
