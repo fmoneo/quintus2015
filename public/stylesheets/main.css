@@ -1,0 +1,26 @@
+.spacer {  
+	margin-top: 10px; 
+}
+ 
+body {
+	padding-top: 50px;
+}
+
+.openSans {
+	font-family: 'Open Sans', sans-serif;
+}
+
+div#spinner
+{
+	display: none;
+	/*width:100px;
+	height: 100px;
+	position: fixed;
+	top: 50%;
+	left: 50%;*/
+	text-align:center;
+	/*margin-left: -50px;
+	margin-top: -100px;*/
+	z-index:2;
+	overflow: auto;
+}    

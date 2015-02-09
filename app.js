@@ -14,8 +14,6 @@ var getQuinielaMaster = require('./routes/getQuinielaMaster');
 var masterAnswer = require('./routes/masterAnswer');
 var masterStatus = require('./routes/masterStatus');
 
-var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -38,8 +36,6 @@ app.use('/userAnswer', userAnswer);
 app.use('/getQuinielaMaster', getQuinielaMaster);
 app.use('/masterAnswer', masterAnswer);
 app.use('/masterStatus', masterStatus);
-
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

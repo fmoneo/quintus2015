@@ -4,10 +4,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	
 
-	
-  res.render('index', { title: 'Express ' + process.env.MYSQL_HOST });
+  res.render('index', { title: 'Express ' + process.env.SERVER_NAME });
+
 });
 
 module.exports = router;
