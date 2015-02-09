@@ -14,14 +14,10 @@ router.get('/', function(request, response) {
 
 		var connection = mysql.createConnection(
 		    {
-		      //host     : 'us-cdbr-azure-west-b.cleardb.com',
-		      //user     : 'bd00916461a1fb',
-		      //password : 'd4a014c9',
-		      //database : 'quintus',
-		      host     : 'localhost',
-		      user     : 'readwrite',
-		      password : 'writeread',
-		      database : 'quintus',
+		      host     : process.env.MYSQL_HOST,
+		      user     : process.env.MYSQL_USER,
+		      password : process.env.MYSQL_PWD,
+		      database : process.env.MYSQL_DB,
 		    }
 		);
 
