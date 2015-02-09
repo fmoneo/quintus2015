@@ -5,7 +5,6 @@ var path = require('path');
 var http = require('http');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(request, response) {
 
 	var resObj =new Object();

@@ -6,7 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+
 var getQuniela = require('./routes/getQuiniela');
+var getQuniela = require('./routes/getResults');
+
 var users = require('./routes/users');
 
 var app = express();
@@ -26,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 app.use('/getQuiniela', getQuniela);
+app.use('/getResults', getResults);
 
 app.use('/users', users);
 
