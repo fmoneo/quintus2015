@@ -179,9 +179,9 @@ function handleRadioClick(myRadio) {
     var userUUID = getUrlParameters("userUUID", "", true);
     var quinielaUUID = getUrlParameters("quinielaUUID", "", true);
 
-    console.log('myRadio.value: ' + myRadio.value);
-    console.log('myRadio.id: ' + myRadio.id);
-    console.log('myRadio.name: ' + myRadio.name);
+    //console.log('myRadio.value: ' + myRadio.value);
+    //console.log('myRadio.id: ' + myRadio.id);
+    //console.log('myRadio.name: ' + myRadio.name);
 
     $("."+myRadio.name).removeClass("alert-info");
     $("."+myRadio.name+"."+myRadio.id).addClass("alert-warning");

@@ -94,7 +94,7 @@ function refreshData(){
                 //Initialize option template
                 var questionOptionHtml = questionOptionHtmlTemplate;
 
-                console.log(data.questions[i].correctAnswer + " = " + data.questions[i].options[j].optionUUID);
+                //console.log(data.questions[i].correctAnswer + " = " + data.questions[i].options[j].optionUUID);
 
                 //Check if option to be added is the one the user selected
                 if (data.questions[i].correctAnswer == data.questions[i].options[j].optionUUID) {
