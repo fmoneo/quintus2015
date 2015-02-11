@@ -1,5 +1,6 @@
-
-var serverName = "quintus2015.azurewebsites.net";
+var parser = document.createElement('a');
+parser.href = document.URL;
+var serverName = parser.host;
 
 $(document).ready(function () {
 

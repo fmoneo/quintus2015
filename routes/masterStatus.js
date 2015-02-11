@@ -5,7 +5,7 @@ var path = require('path');
 var http = require('http');
 var router = express.Router();
 
-router.get('/', function(request, response) {
+router.put('/', function(request, response) {
 
 	var resObj =new Object();
 	var userId, quinielaId;

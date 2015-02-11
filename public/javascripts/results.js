@@ -1,5 +1,7 @@
+var parser = document.createElement('a');
+parser.href = document.URL;
+var serverName = parser.host;
 
-var serverName = "quintus2015.azurewebsites.net";
 
 $(document).ready(function () {
 
@@ -14,6 +16,8 @@ function refreshData(){
 
     var quinielaTitleHtmlTemplate = "<h4 class=\"openSans panel-title\">%QUINIELA_TITLE%</h4>";
     var quinielaStatusHtmlTemplate = "<span class=\"label %QUINIELA_STATUS_CLASS% pull-right\">%QUINIELA_STATUS%</span>";
+
+
 
     $.ajax({
         url: "http://"+serverName+"/getResults?quinielaUUID="+quinielaUUID+"&groupUUID="+groupUUID+"&r="+Math.random()

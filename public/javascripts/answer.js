@@ -1,5 +1,6 @@
-
-var serverName = "quintus2015.azurewebsites.net";
+var parser = document.createElement('a');
+parser.href = document.URL;
+var serverName = parser.host;
 
 $(document).ready(function () {
 
@@ -31,8 +32,13 @@ $(document).ready(function () {
     var glyphiconRemoveHtmlTemplate = "<span class=\"glyphicon glyphicon-remove pull-right\"></span>";
     var glyphiconOkHtmlTemplate = " <span class=\"glyphicon glyphicon-ok pull-right\"></span>";
 
+
+    
+    //console.log("http://"+serverName+"/getQuiniela?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID);
+
     $.ajax({
         url: "http://"+serverName+"/getQuiniela?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID
+
     }).then(function (data) {
 
          $("#headMessage").append(data.userName);
