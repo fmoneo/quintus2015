@@ -32,7 +32,7 @@ router.get('/', function(request, response) {
 										'INNER JOIN totalPoints tp ON (fq.quinielaId = tp.quinielaId AND fq.groupId = tp.groupId AND fq.userId = tp.userId) ' +
 										'LEFT JOIN pendingAnswers pa ON (fq.quinielaId = pa.quinielaId AND fq.groupId = pa.groupId AND fq.userId = pa.userId) ' +									
 									'WHERE fq.quinielaUUID=\'%quinielaUUID%\' '+ 
-									//'AND fq.groupUUID=\'%groupUUID%\'' +
+									'AND fq.groupUUID=\'%groupUUID%\'' +
 									'ORDER BY fq.quinielaUUID, fq.groupName, tp.totalPoints DESC, fq.userId, fq.updateDateTime DESC ' ;
 
 				
