@@ -119,7 +119,7 @@ router.get('/', function(request, response) {
 
 				    	}
 
-				    	if(lastXIndex < 5 && rows[i].correctAnswerId != null){
+				    	if(lastXIndex < 10 && rows[i].correctAnswerId != null){
 				    		resObj.groupResults[groupIndex].standings[userIndex].lastX[lastXIndex] = rows[i].userPoints;
 				    	}
 				    	
