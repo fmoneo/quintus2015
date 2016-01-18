@@ -31,7 +31,7 @@ router.put('/', function(request, response) {
 				connection.connect();
 				 
 				var queryString = 'SELECT u.userId, q.questionId, o.optionId ' +
-									'FROM user u, question q, `option` o, groupQuiniela gq,  groupUser gu, quiniela qu ' + 
+									'FROM user u, question q, `option` o, groupquiniela gq,  groupuser gu, quiniela qu ' + 
 								   	'WHERE q.questionId = o.questionId ' +
 								   	'AND u.userId = gu.userId ' +
 								   	'AND gu.groupId = gq.groupId ' +
@@ -78,7 +78,7 @@ router.put('/', function(request, response) {
 				//Check if it already exists
 
 					var queryString = 'SELECT ua.userId, ua.questionId, ua.optionId ' +
-										'FROM userAnswer ua '+
+										'FROM useranswer ua '+
 									   	'WHERE ua.userId=\'%userId%\' '+ 
 										'AND ua.questionId=\'%questionId%\' ' ;
 
@@ -112,7 +112,7 @@ router.put('/', function(request, response) {
 				if(validUUIDs && recordExists){
 
 					// UPDATE
-					var queryString = 'UPDATE userAnswer '+
+					var queryString = 'UPDATE useranswer '+
 									   	'SET optionId=\'%optionId%\' ' + 
 										'WHERE userId=\'%userId%\' '+ 
 										'AND questionId=\'%questionId%\'';
@@ -137,7 +137,7 @@ router.put('/', function(request, response) {
 
 					// INSERT
 					// UPDATE
-					var queryString = 'INSERT INTO userAnswer (userId, questionId, optionId) '+
+					var queryString = 'INSERT INTO useranswer (userId, questionId, optionId) '+
 									   	'VALUES (\'%userId%\' ,\'%questionId%\',\'%optionId%\')';
 
 					queryString = queryString.replace("%userId%", userId);

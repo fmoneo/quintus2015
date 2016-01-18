@@ -28,7 +28,7 @@ router.get('/', function(request, response) {
 				connection.connect();
 				 
 				var queryString = 'SELECT u.userUUID, u.name as userName, g.groupUUID, g.name as groupName, q.quinielaUUID, q.name as quinielaName, q.date as quinielaDate, q.status as quinielaStatus ' +
-									'FROM user u, groupUser gu, groupQuiniela gq, quiniela q, `group` g ' +
+									'FROM user u, groupuser gu, groupquiniela gq, quiniela q, `group` g ' +
 								   	'WHERE u.userId=gu.userId ' +
 									'AND gu.groupId=gq.groupId ' +
 									'AND gq.quinielaId=q.quinielaId ' +

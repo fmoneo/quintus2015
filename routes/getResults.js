@@ -29,8 +29,8 @@ router.get('/', function(request, response) {
 				 
 				var queryString = 	'SELECT fq.quinielaUUID, fq.quinielaName, fq.quinielaStatus, fq.groupName, fq.groupUUID, fq.groupId, fq.userName, fq.userId, tp.totalPoints, fq.correctAnswerId, fq.userPoints, IFNULL(pa.pendingAnswers,0) as pendingAnswers ' +
 									'FROM flatquintus fq ' +
-										'INNER JOIN totalPoints tp ON (fq.quinielaId = tp.quinielaId AND fq.groupId = tp.groupId AND fq.userId = tp.userId) ' +
-										'LEFT JOIN pendingAnswers pa ON (fq.quinielaId = pa.quinielaId AND fq.groupId = pa.groupId AND fq.userId = pa.userId) ' +									
+										'INNER JOIN totalpoints tp ON (fq.quinielaId = tp.quinielaId AND fq.groupId = tp.groupId AND fq.userId = tp.userId) ' +
+										'LEFT JOIN pendinganswers pa ON (fq.quinielaId = pa.quinielaId AND fq.groupId = pa.groupId AND fq.userId = pa.userId) ' +									
 									'WHERE fq.quinielaUUID=\'%quinielaUUID%\' '+ 
 									'AND fq.groupUUID=\'%groupUUID%\'' +
 									'ORDER BY fq.quinielaUUID, fq.groupName, tp.totalPoints DESC, fq.userId, fq.updateDateTime DESC ' ;
