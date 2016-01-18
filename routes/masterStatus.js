@@ -30,7 +30,7 @@ router.put('/', function(request, response) {
 				connection.connect();
 				 
 				var queryString = 'SELECT u.userId, qu.quinielaId ' +
-									'FROM user u, groupQuiniela gq,  groupUser gu, quiniela qu ' + 
+									'FROM user u, groupquiniela gq,  groupuser gu, quiniela qu ' + 
 								   	'WHERE u.userId = gu.userId ' +
 								   	'AND gu.groupId = gq.groupId ' +
 								   	'AND gq.quinielaId = qu.quinielaId ' +
