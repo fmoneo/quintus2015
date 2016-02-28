@@ -68,7 +68,7 @@ router.get('/', function(request, response) {
 
 			function(callback) {
 
-				var queryString = 'SELECT q.questionId, q.questionUUID, q.points as questionPoints, q.question, oca.optionUUID as correctAnswer, o.optionId, o.optionUUID, o.title as optionTitle, o.subtitle as optionSubtitle ' +
+				var queryString = 'SELECT q.questionId, q.questionUUID, q.points as questionPoints, q.question, q.isLive, oca.optionUUID as correctAnswer, o.optionId, o.optionUUID, o.title as optionTitle, o.subtitle as optionSubtitle ' +
 									'FROM question q '+
 										'INNER JOIN quiniela ql ON (q.quinielaId=ql.quinielaId) ' +
 										'INNER JOIN `option` o ON (q.questionId=o.questionId) ' +	
@@ -101,6 +101,7 @@ router.get('/', function(request, response) {
 
 	
 				    	theQuestions[q].questionUUID= rows[i].questionUUID;
+				    	theQuestions[q].isLive= rows[i].isLive;
 				    	theQuestions[q].title = rows[i].question;
 				    	theQuestions[q].correctAnswer = rows[i].correctAnswer;				    	
 				    	theQuestions[q].questionPoints = rows[i].questionPoints;

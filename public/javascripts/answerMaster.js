@@ -23,7 +23,12 @@ function refreshData(){
                                     "&nbsp;<button onclick=\"handleBtnClick('closed');\" type=\"button\" id=\"closed-btn\" class=\"btn btn-danger\" %DISABLED_CLOSED%>closed</button>"+
                                 "</div>";
 
-    var questionHtmlStartTemplate = "<div class=\"panel panel-primary\"><div class=\"panel-heading\"><div class=\"row\"><div class=\"col-md-9 col-xs-9\"><h4 class=\"openSans panel-title\">%QUESTION_TITLE%</h4></div><div class=\"col-md-3 col-xs-3\">%QUESTION_POINTS_SPAN%</div></div></div><ul class=\"list-group\">";
+    //var liveButtonHtmlTemplate = "<div class=\"btn-group btn-group-xs\" role=\"group\"><button onclick=\"handleLiveBtnClick('%QUESTION_UUID%','0');\" type=\"button\"  class=\"btn btn-success\" %DISABLED_LIVE%>live</button>" + 
+    //                                "&nbsp;<button onclick=\"handleLiveBtnClick('%QUESTION_UUID%','1');\" type=\"button\"  class=\"btn btn-danger\" %DISABLED_OFF%>off</button></div>";
+
+    var liveButtonHtmlTemplate = "<div class=\"btn-group btn-group-xs\" role=\"group\"><button onclick=\"handleLiveBtnClick('%QUESTION_UUID%','%LIVE_BTN_ISLIVE%');\" type=\"button\"  class=\"btn %LIVE_BTN_CLASS%\" >%LIVE_BTN_TITLE%</button></div>";
+
+    var questionHtmlStartTemplate = "<div class=\"panel panel-primary\"><div class=\"panel-heading\"><div class=\"row\"><div class=\"col-md-10 col-xs-10\"><h4 class=\"openSans panel-title\">%QUESTION_TITLE%</h4></div><div class=\"col-md-2 col-xs-2\">"+liveButtonHtmlTemplate+"</div></div></div><ul class=\"list-group\">";
     var questionHtmlEndTemplate = "</ul></div>";
 
     var questionOptionHtmlTemplate =    "<li class=\"list-group-item %OPTION_ID% %QUESTION_ID% %QUESTION_OPTION_CLASS%\">"+
@@ -82,6 +87,22 @@ function refreshData(){
 
             questionPointsHtml = questionPointsHtml.replace("%QUESTION_POINTS_CLASS%", "label-default");
             questionPointsHtml = questionPointsHtml.replace("%QUESTION_POINTS%", data.questions[i].questionPoints);
+
+            // Add live button details
+            questionHtmlStart = questionHtmlStart.replace("%QUESTION_UUID%", data.questions[i].questionUUID);
+            if(data.questions[i].isLive == 0){
+                questionHtmlStart = questionHtmlStart.replace("%LIVE_BTN_TITLE%", "Off");
+                questionHtmlStart = questionHtmlStart.replace("%LIVE_BTN_CLASS%", "btn-danger");
+                questionHtmlStart = questionHtmlStart.replace("%LIVE_BTN_ISLIVE%", "1");
+                //questionHtmlStart = questionHtmlStart.replace("%DISABLED_LIVE%", "disabled");
+                //questionHtmlStart = questionHtmlStart.replace("%DISABLED_OFF%", "");
+            } else if(data.questions[i].isLive == 1){
+                questionHtmlStart = questionHtmlStart.replace("%LIVE_BTN_TITLE%", "Live");
+                questionHtmlStart = questionHtmlStart.replace("%LIVE_BTN_CLASS%", "btn-success");
+                questionHtmlStart = questionHtmlStart.replace("%LIVE_BTN_ISLIVE%", "0");
+                //questionHtmlStart = questionHtmlStart.replace("%DISABLED_LIVE%", "");
+                //questionHtmlStart = questionHtmlStart.replace("%DISABLED_OFF%", "disabled");
+            }            
 
             // Add Points span to template
             questionHtmlStart = questionHtmlStart.replace("%QUESTION_POINTS_SPAN%", questionPointsHtml);
@@ -192,6 +213,25 @@ function handleBtnClick(status) {
     $.ajax({
         type: 'PUT',
         url: "http://"+serverName+"/masterStatus?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID+"&status="+status
+    }).then(function (data) {
+        //If there are no errors
+        if(data.error == null){
+            refreshData();
+        } else {
+            //TO DO - HANDLE ERROR
+        }
+                        
+    });
+}
+
+function handleLiveBtnClick(questionUUID, isLive) {
+
+    var userUUID = getUrlParameters("userUUID", "", true);
+    var quinielaUUID = getUrlParameters("quinielaUUID", "", true);
+
+    $.ajax({
+        type: 'PUT',
+        url: "http://"+serverName+"/masterLive?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID+"&questionUUID="+questionUUID+"&isLive="+isLive
     }).then(function (data) {
         //If there are no errors
         if(data.error == null){

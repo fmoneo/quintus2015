@@ -13,6 +13,8 @@ var userAnswer = require('./routes/userAnswer');
 var getQuinielaMaster = require('./routes/getQuinielaMaster');
 var masterAnswer = require('./routes/masterAnswer');
 var masterStatus = require('./routes/masterStatus');
+var getLive = require('./routes/getLive');
+var masterLive = require('./routes/masterLive');
 
 var app = express();
 
@@ -36,6 +38,8 @@ app.use('/userAnswer', userAnswer);
 app.use('/getQuinielaMaster', getQuinielaMaster);
 app.use('/masterAnswer', masterAnswer);
 app.use('/masterStatus', masterStatus);
+app.use('/getLive', getLive);
+app.use('/masterLive', masterLive);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
