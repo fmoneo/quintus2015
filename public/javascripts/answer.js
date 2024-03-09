@@ -37,7 +37,7 @@ $(document).ready(function () {
     //console.log("http://"+serverName+"/getQuiniela?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID);
 
     $.ajax({
-        url: "http://"+serverName+"/getQuiniela?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID
+        url: "https://"+serverName+"/getQuiniela?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID
 
     }).then(function (data) {
 
