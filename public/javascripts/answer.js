@@ -188,7 +188,7 @@ function handleRadioClick(myRadio) {
 
     $.ajax({
         type: 'PUT',
-        url: "http://"+serverName+"/userAnswer?userUUID="+userUUID+"&questionUUID="+myRadio.name+"&optionUUID="+myRadio.id
+        url: "https://"+serverName+"/userAnswer?userUUID="+userUUID+"&questionUUID="+myRadio.name+"&optionUUID="+myRadio.id
     }).then(function (data) {
         //If there are no errors
         if(data.error == null){

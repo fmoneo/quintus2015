@@ -18,7 +18,7 @@ function refreshData(){
     var quinielaStatusHtmlTemplate = "<span class=\"label %QUINIELA_STATUS_CLASS% pull-right\">%QUINIELA_STATUS%</span>";
 
     $.ajax({
-        url: "http://"+serverName+"/getLive?quinielaUUID="+quinielaUUID+"&groupUUID="+groupUUID+"&r="+Math.random()
+        url: "https://"+serverName+"/getLive?quinielaUUID="+quinielaUUID+"&groupUUID="+groupUUID+"&r="+Math.random()
     }).then(function (data) {
 
         // QUINIELA TITLE

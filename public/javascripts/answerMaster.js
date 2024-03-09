@@ -53,7 +53,7 @@ function refreshData(){
     var glyphiconOkHtmlTemplate = " <span class=\"glyphicon glyphicon-ok pull-right\"></span>";
 
     $.ajax({
-        url: "http://"+serverName+"/getQuinielaMaster?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID
+        url: "https://"+serverName+"/getQuinielaMaster?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID
     }).then(function (data) {
 
         if(data.quinielaStatus == 'open'){
@@ -191,7 +191,7 @@ function handleRadioClick(myRadio) {
 
     $.ajax({
         type: 'PUT',
-        url: "http://"+serverName+"/masterAnswer?userUUID="+userUUID+"&questionUUID="+myRadio.name+"&optionUUID="+myRadio.id
+        url: "https://"+serverName+"/masterAnswer?userUUID="+userUUID+"&questionUUID="+myRadio.name+"&optionUUID="+myRadio.id
     }).then(function (data) {
         //If there are no errors
         if(data.error == null){
@@ -212,7 +212,7 @@ function handleBtnClick(status) {
 
     $.ajax({
         type: 'PUT',
-        url: "http://"+serverName+"/masterStatus?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID+"&status="+status
+        url: "https://"+serverName+"/masterStatus?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID+"&status="+status
     }).then(function (data) {
         //If there are no errors
         if(data.error == null){
@@ -231,7 +231,7 @@ function handleLiveBtnClick(questionUUID, isLive) {
 
     $.ajax({
         type: 'PUT',
-        url: "http://"+serverName+"/masterLive?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID+"&questionUUID="+questionUUID+"&isLive="+isLive
+        url: "https://"+serverName+"/masterLive?userUUID="+userUUID+"&quinielaUUID="+quinielaUUID+"&questionUUID="+questionUUID+"&isLive="+isLive
     }).then(function (data) {
         //If there are no errors
         if(data.error == null){

@@ -20,7 +20,7 @@ function refreshData(){
 
 
     $.ajax({
-        url: "http://"+serverName+"/getResults?quinielaUUID="+quinielaUUID+"&groupUUID="+groupUUID+"&r="+Math.random()
+        url: "https://"+serverName+"/getResults?quinielaUUID="+quinielaUUID+"&groupUUID="+groupUUID+"&r="+Math.random()
     }).then(function (data) {
 
         // QUINIELA TITLE
